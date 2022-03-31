@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        recyclerView = findViewById(R.id.recyclerView)
+        recyclerView = findViewById(R.id.recyclerview)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
         bookArrayList = arrayListOf()

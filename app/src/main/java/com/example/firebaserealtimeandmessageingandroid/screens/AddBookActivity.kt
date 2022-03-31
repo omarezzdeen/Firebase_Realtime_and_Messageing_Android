@@ -3,12 +3,15 @@ package com.example.firebaserealtimeandmessageingandroid.screens
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.example.firebaserealtimeandmessageingandroid.R
 import com.example.firebaserealtimeandmessageingandroid.MainActivity
 import com.example.firebaserealtimeandmessageingandroid.models.Books
+import com.example.firebaserealtimeandmessageingandroid.models.NotificationContentData
+import com.example.firebaserealtimeandmessageingandroid.models.PushNotification
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
@@ -42,11 +45,6 @@ class AddBookActivity : AppCompatActivity() {
         bookCollectionRef.child("book/${books.id}").setValue(books).addOnCompleteListener {task->
             if (task.isSuccessful){
                 Toast.makeText(this,"successfully added Book", Toast.LENGTH_LONG).show()
-//                // Messaging
-//                val notificationData =
-//                    NotificationContentData(title = "Add New Book", body = "$bookName Added Successfully")
-//                val pushNotification =
-//                    PushNotification(data = notificationData, to = "")
 
                 startActivity(Intent(this, MainActivity::class.java))
             }else{
